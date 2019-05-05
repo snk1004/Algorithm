@@ -1,2 +1,2 @@
 # Algorithm
-some个人整理的算法题
+some Algorithm in myself
