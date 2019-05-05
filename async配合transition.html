@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-radius: 50%;
+            transition: transform .6s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" onclick="moveTo"></div>
+</body>
+<script>
+    const oBox = document.getElementById('box');
+    oBox.addEventListener('transitionend', () => {
+        let {x,y} = oBox;
+        moveTo.reslove({x,y});
+    }, false);
+
+    function moveTo(x, y) {
+        return new Promise((reslove, reject) => {
+            moveTo.reslove = reslove;
+            oBox.x = x;
+            oBox.y = y;
+            oBox.style.transform = `translate(${x}px,${y}px)`;
+        })
+    }
+    async function start(){
+        await moveTo(200, 300);
+        await moveTo(400, 50);
+        await moveTo(600, 300);
+        await moveTo(800, 0);
+        await moveTo(0, 0);
+    }
+    oBox.addEventListener('click', () => {
+        start().then((res)=>{
+            console.log(res);
+        })
+    })
+</script>
+
+</html>

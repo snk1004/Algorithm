@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box img {
+            width: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../../Pictures/loading/dog.gif" alt="" id="a1">
+        <img src="../../Pictures/loading/dog.gif" alt="" id="a2">
+        <img src="../../Pictures/loading/dog.gif" alt="" id="a3">
+    </div>
+</body>
+<script>
+    // 封装加载图片的promise  
+    let loadImg = (src) => {
+        return new Promise((resolve, reject) => {
+            // write your code here
+            let imgs = new Image();
+            imgs.src = src;
+            console.log(imgs.src);
+            imgs.onload = () => {
+                resolve(imgs)
+            }
+        })
+        /* .then(item => {
+                        fAsync(item)
+                    }).catch(reject => {}) */
+    }
+    const imgs = [
+        './Saved Pictures/18cb732d8e8a0ee821dfa63ed1759354.jpg',
+        './Saved Pictures/b28e1d1b24eab4.jpg',
+        './Saved Pictures/5a3def7e43582363ec19e53487803cc3.jpg'
+    ];
+    var bigImg = document.querySelectorAll('.box img');
+    // 依次加载图片
+    async function fAsync(imgs) {
+        // write your code here
+        for (var i = 0; i < imgs.length; i++) {
+            await loadImg(imgs[i]).then(res => {
+                bigImg[i].src = imgs[i]
+            }, 1000);
+        }
+    }
+    fAsync(imgs);
+</script>
+
+</html>

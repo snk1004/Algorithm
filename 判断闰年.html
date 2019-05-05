@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var year = prompt("请输入年份"); //弹出输入框
+    console.log(year);
+    if (year % 4 == 0 && year % 100 != 0) {
+        alert('该年是闰年')
+    } else if (year % 400 == 0) {
+        alert('该年是闰年')
+    }else{
+        alert('该年是平年')
+    }
+    /* var a1 = year % 4 == 0;
+    var a2 = year % 100 != 0;
+    var a3 = year % 400 == 0;
+    var result = (a1 && a2) || a3 ? "该年是闰年" : "该年的平年"; //三目运算符
+    alert(result); */
+</script>
+
+</html>

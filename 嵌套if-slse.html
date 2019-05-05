@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3></h3>
+</body>
+<script>
+    const out = document.querySelector('h3');
+    /* 嵌套if-slse语句的妙用 */
+    function Fraction(fra){
+        if(fra<60){
+            return 'E'
+        }else if(70>fra){
+            return 'D'
+        }else if(80>fra){
+            return 'C'
+        }else if(90>fra){
+            return 'B'
+        }else if(fra>=90){
+            return 'A'
+        }
+    }
+    let fract = Fraction(89)
+    out.innerHTML = '您的成绩等级为: '+fract
+</script>
+</html>

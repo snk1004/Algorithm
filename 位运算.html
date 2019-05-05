@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h3>×
+        <hr> 4.9 巧用位运算
+        用位运算操作实现两个整数的交换。例如x1=5，x2=10；交换后x1=10，x2=5。</h3>
+</body>
+<script>
+    // ---用位运算操作实现两个整数的交换。例如x1=5，x2=10；交换后x1=10，x2=5---
+    function exChange(a, b) {
+        x1 = a
+        x2 = b
+        t = a
+        a = b
+        b = t
+        return ['x1 = ' + a, 'x2 = ' + b]
+    }
+    console.log('位运算输出:', exChange(5, 10));
+
+    // ---js记录程序的运行时间---
+    console.time('x')
+    for (var i = 0; i < 100000; i++) {
+
+    }
+    console.log('运算时间:')
+    console.timeEnd('x');
+
+    // ---十进制/二进制转化器---
+    let sum = 64;
+    console.log(sum.toString(2));
+
+    // ---计打印特殊图案---
+    for (var i = 0; i < 10; i++) {
+
+        for (let k = 11; k > i; k--) {
+            document.write('&nbsp' + '&nbsp');
+        }
+        for (var j = 0; j < i + 1; j++) {
+            document.write('❤️' + '&nbsp');
+        }
+        document.write('<br>');
+    }
+
+    // 杨辉三角
+    document.write("杨辉三角:"+'<br/>');
+    function YH(row) {
+        //创建一位数组
+        var array = new Array(row)
+        //创建二维数组
+        for (var i = 0; i < array.length; i++) {
+            array[i] = new Array(i + 1)
+        }
+        for (var i = 0; i < array.length; i++) {
+            for (var j = 0; j < array[i].length; j++) {
+                if (j == 0 || i == j) {
+                    array[i][j] = 1;
+                } else {
+                    array[i][j] = array[i - 1][j - 1] + array[i - 1][j];
+                }
+            }
+        }
+        for (var i = 0; i < array.length; i++) {
+            for (var j = 0; j < array[i].length; j++) {
+                document.write(array[i][j] + "\t");
+            }
+            document.write("<br/>");
+        }
+        console.log(array);
+    }
+    YH(6)
+</script>
+
+</html>
